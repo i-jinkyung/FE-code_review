@@ -1,64 +1,41 @@
 # FE-code_review
+
 항해 플러스 주최 웹개발 스터디의 우수 스터디원 한정 코드리뷰 문제입니다.
 
 <br/>
 <br/>
 
 <p align="middle" >
-  <img width="100px;" src="src/images/calculator_icon.png"/>
+  <img width="100px;" src="images/ic_clock.webp"/>
 </p>
-<h2 align="middle">level1 - 자바스크립트 계산기</h2>
-<p align="middle">자바스크립트 계산기로 익혀보는 Cypress</p>
-<p align="middle">
-  <img src="https://img.shields.io/badge/version-1.0.0-blue?style=flat-square" alt="template version"/>
-  <img src="https://img.shields.io/badge/language-html-red.svg?style=flat-square"/>
-  <img src="https://img.shields.io/badge/language-css-blue.svg?style=flat-square"/>
-  <img src="https://img.shields.io/badge/language-js-yellow.svg?style=flat-square"/>
-  <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square"/>
-</p>
+<h2 align="middle">자바스크립트 타이머 & 스탑워치</h2>
+<p align="middle">타이머와 스탑워치 예제로 익혀보는 React와 Jest</p>
 
-## 🔥 Projects!
-<p align="middle">
-  <img width="300" src="src/images/calculator_ui.png">
-</p>
+## ✅ 기능 요구사항
 
-<p align="middle">
-  <a href="https://next-step.github.io/js-calculator/">🖥️ 데모 링크</a>
-</p>
+### ⏱️ 스탑워치
 
+- [ ] 00:00:00 (분, 초, 밀리초) 단위로 시간이 표시된다.
+- [ ] 현재 상태가 'START' 상태이면 시간이 증가한다.
+- [ ] 현재 상태가 'STOP' 상태이면 시간이 증가하지 않는다.
+- [ ] START/STOP 버튼이 있고 해당 버튼을 누르면 상태가 변경된다.
+- [ ] RESET 버튼이 있고 RESET 버튼을 누르면 00:00:00 으로 시간이 초기화된다.
+- [ ] 위의 문장들을 Jest로 테스트코드를 작성한다.
 
-## 🎯 기능 요구사항
+### ⏰ 타이머
 
-- [ ] 2개의 숫자에 대해 덧셈이 가능하다.
-- [ ] 2개의 숫자에 대해 뺄셈이 가능하다.
-- [ ] 2개의 숫자에 대해 곱셈이 가능하다.
-- [ ] 2개의 숫자에 대해 나눗셈이 가능하다.
-- [ ] AC(All Clear)버튼을 누르면 0으로 초기화 한다.
-- [ ] 숫자는 한번에 최대 3자리 수까지 입력 가능하다.
-- [ ] 계산 결과를 표현할 때 소수점 이하는 버림한다.
+- [ ] 00:00:00 (분, 초, 밀리초) 단위로 시간이 표시된다.
+- [ ] 타이머에 대한 시간을 설정할 수 있다.
+- [ ] 타이머가 'START' 상태이면 시간이 줄어든다.
+- [ ] 타이머가 'STOP' 상태이면 시간이 줄어들지 않는다.
+- [ ] 카운트다운이 전부 완료되면 종료됨을 알리고 정지 상태로 변경한다.
+- [ ] 위의 문장들을 Jest로 테스트코드를 작성한다.
+      <br/>
 
-<br/>
+## ✍️ 참고사항
 
-## 📊 테스트 요구사항
-
-**기능 요구사항에 제시된 7개의 항목에 대해 테스트 케이스를 만든다.**
-
-<br/>
-
-## 📄 참고 사항
-* 숫자 입력은 **클릭**으로만 가능하다.
-
-<br/>
-
-## 👏 Contributing
-만약 미션 수행 중에 개선사항이 보인다면, 언제든 자유롭게 PR을 보내주세요. 
-
-<br/>
-
-## 🐞 Bug Report
-버그를 발견한다면, [Issues](https://github.com/next-step/js-calculator/issues) 에 등록 후 @eastjun에게 dm을 보내주세요.
-
-<br/>
-
-## 📝 License
-This project is [MIT](https://github.com/next-step/js-calculator/blob/master/LICENSE) licensed.
+별도의 외부 패키지 및 라이브러리를 사용하지 않고 구현해주시면 됩니다.
+단, Typescript 적용 여부는 본인의 선호에 따라 결정해주시면 됩니다.
+마찬가지로 React App은 CRA나 Vite 등 어떤 방식으로 생성하셔도 상관없습니다.
+Javascript 사용 방식과 React 상태 및 의존성 관리, 렌더링 최적화에 신경을 써주시면 됩니다.
+작성이 완료되면 해당 Repo에 PR을 올려주시면 됩니다.
