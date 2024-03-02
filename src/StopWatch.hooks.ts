@@ -1,7 +1,7 @@
 import {useRef, useState} from "react";
 
 export function useStopWatch() {
-  const [time, setTime] = useState(0)
+  const [timestamp, setTimestamp] = useState(0)
   const [running, setRunning] = useState(false)
   const currentTimer = useRef(-1);
 
@@ -10,7 +10,7 @@ export function useStopWatch() {
 
     setRunning(true)
     currentTimer.current = setInterval(() => {
-      setTime(prev => prev + 1)
+      setTimestamp(prev => prev + 1)
     }, 10)
   }
 
@@ -21,8 +21,8 @@ export function useStopWatch() {
 
   const reset = () => {
     setRunning(false)
-    clearInterval(currentTimer.current)
+    setTimestamp(0);
   }
 
-  return {time, start, stop, reset};
+  return {timestamp, start, stop, reset};
 }
