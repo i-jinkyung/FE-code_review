@@ -1,27 +1,24 @@
 import {useRef, useState} from "react";
 
 export function useStopWatch() {
-  const [timestamp, setTimestamp] = useState(0)
-  const [running, setRunning] = useState(false)
+  const [startTimestamp, setStartTimestamp] = useState(Date.now());
+  const [currentTimestamp, setCurrentTimestamp] = useState(Date.now());
   const currentTimer = useRef(-1);
 
-  const start = () => {
-    if (running) return;
+  const timestamp = currentTimestamp - startTimestamp;
 
-    setRunning(true)
-    currentTimer.current = setInterval(() => {
-      setTimestamp(prev => prev + 1)
-    }, 10)
+  const stop = () => cancelAnimationFrame(currentTimer.current);
+  const play = () => {
+    setCurrentTimestamp(Date.now());
+    currentTimer.current = requestAnimationFrame(play);
   }
 
-  const stop = () => {
-    setRunning(false)
-    clearInterval(currentTimer.current)
-  }
+  const start = () => play();
 
   const reset = () => {
-    setRunning(false)
-    setTimestamp(0);
+    stop();
+    setStartTimestamp(Date.now());
+    setCurrentTimestamp(Date.now());
   }
 
   return {timestamp, start, stop, reset};
