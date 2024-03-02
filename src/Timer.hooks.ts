@@ -22,6 +22,15 @@ const timeInfoReducer = (state: TimerInfo, action: TimerDurationAction | TimerSt
   }
 }
 
+const getTargetTimestamp = ({duration, timeStatus}: TimerInfo) => {
+  const 초 = 1000;
+  const 분 = 초 * 60;
+
+  if (timeStatus === TimerStatus.Minute) return duration * 분;
+  if (timeStatus === TimerStatus.Second) return duration * 초;
+  return duration;
+}
+
 
 export function useTimerInfo() {
   const [timerInfo, dispatch] = useReducer(timeInfoReducer, {duration: 0, timeStatus: TimerStatus.Minute});
@@ -36,38 +45,43 @@ export function useTimerInfo() {
 
 
 export function useTimer(timerInfo: TimerInfo) {
-  const [timestamp, setTimestamp] = useState(0)
+  const [targetTimestamp, setTargetTimestamp] = useState(0);
+  const [currentTimestamp, setCurrentTimestamp] = useState(0);
   const [running, setRunning] = useState(false)
-  const timerRef = useRef<number>(-1);
+  const timerRef = useRef(-1);
 
+  const timestamp = targetTimestamp - currentTimestamp;
+
+  const reset = () => {
+    setTargetTimestamp(0);
+    setCurrentTimestamp(0);
+  }
 
   const stop = () => {
     if (!running) return;
 
     setRunning(false)
-    clearInterval(timerRef.current)
+    cancelAnimationFrame(timerRef.current)
+  }
+
+  const play = () => {
+    setCurrentTimestamp(() => Date.now());
+    timerRef.current = requestAnimationFrame(play);
   }
 
   const start = () => {
     if (running) return
-
     setRunning(true)
-    const {duration, timeStatus} = timerInfo;
-
-    if (timeStatus === TimerStatus.MilliSecond) setTimestamp(duration / 10)
-    if (timeStatus === TimerStatus.Second) setTimestamp(duration * 100)
-    if (timeStatus === TimerStatus.Minute) setTimestamp(duration * 6000)
-
-    timerRef.current = setInterval(() => {
-      setTimestamp(prev => prev - 1)
-    }, 10)
+    setTargetTimestamp(Date.now() + getTargetTimestamp(timerInfo));
+    setCurrentTimestamp(Date.now());
+    play();
   }
 
   useEffect(() => {
     if (timestamp >= 0) return;
 
-    stop() // 타이머 종료
-    setTimestamp(0) // 시간 초기화
+    stop();
+    reset();
     alert('타이머가 종료되었습니다.')
   }, [timestamp]);
 
