@@ -1,46 +1,36 @@
-# Getting Started with Create React App
+# 프론트엔드 코드 리뷰
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+항해 플러스 주최 웹개발 스터디의 우수 스터디원 한정 코드리뷰 문제입니다.
 
-## Available Scripts
+<h2 align="middle">자바스크립트 타이머 & 스탑워치</h2>
+<p align="middle" >
+  <img width="120px;" src="images/ic_clock.webp"/>
+</p>
 
-In the project directory, you can run:
+## ✅ 기능 요구사항
 
-### `npm start`
+### ⏱️ 스탑워치
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [ ] 00:00:00 (분, 초, 밀리초) 단위로 시간이 표시된다.
+- [ ] 현재 상태가 'START' 상태이면 시간이 증가한다.
+- [ ] 현재 상태가 'STOP' 상태이면 시간이 증가하지 않는다.
+- [ ] START/STOP 버튼이 있고 해당 버튼을 누르면 상태가 변경된다.
+- [ ] RESET 버튼이 있고 RESET 버튼을 누르면 00:00:00 으로 시간이 초기화된다.
+- [ ] 위의 문장들을 jest, vitest, cypress 등 원하는 테스트 도구를 사용하여 테스트를 작성한다.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### ⏰ 타이머
 
-### `npm test`
+- [ ] 00:00:00 (분, 초, 밀리초) 단위로 시간이 표시된다.
+- [ ] 타이머에 대한 시간을 설정할 수 있다.
+- [ ] 타이머가 'START' 상태이면 시간이 줄어든다.
+- [ ] 타이머가 'STOP' 상태이면 시간이 줄어들지 않는다.
+- [ ] 카운트다운이 전부 완료되면 종료됨을 알리고 정지 상태로 변경한다.
+- [ ] 위의 문장들을 jest, vitest, cypress 등 원하는 테스트 도구를 사용하여 테스트를 작성한다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ✍️ 참고사항
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 별도의 외부 패키지 및 라이브러리를 사용하지 않고 구현해주시면 됩니다.
+- 단, Typescript 적용 여부는 본인의 선호에 따라 결정해주시면 됩니다.
+- 마찬가지로 React App은 CRA나 Vite 등 어떤 방식으로 생성하셔도 상관없습니다.
+- Javascript 사용 방식과 React 상태 및 의존성 관리, 렌더링 최적화에 신경을 써주시면 됩니다.
+- 작성이 완료되면 해당 Repo에 PR을 올려주시면 됩니다.
