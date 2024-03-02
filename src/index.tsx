@@ -20,8 +20,8 @@ export const CodeReview = memo(()=>{
         duration:0,
         time:TimeStatus.Minute
     })
-    const stopWatchRef = useRef<ReturnType<typeof setInterval> | undefined>(undefined);
-    const timerRef = useRef<ReturnType<typeof setInterval> | undefined>(undefined);
+    const stopWatchRef = useRef<number>(-1);
+    const timerRef = useRef<number>(-1);
 
 
     useEffect(() => {
